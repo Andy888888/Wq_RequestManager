@@ -8,7 +8,7 @@
 
 #import "ApiDelegate.h"
 #import "AbsApi.h"
-#import "AFHTTPSessionManager.h"
+@class AFHTTPSessionManager;
 
 /// 请求响应成功的block
 typedef void (^ResponseSuccessBlock)(id result);
