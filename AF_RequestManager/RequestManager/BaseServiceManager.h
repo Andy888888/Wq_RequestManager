@@ -6,6 +6,8 @@
 //  Copyright © 2016年 燕文强. All rights reserved.
 //
 
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
 #import "ApiDelegate.h"
 #import "AbsApi.h"
 #import "AFHTTPSessionManager.h"
