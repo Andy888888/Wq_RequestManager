@@ -43,4 +43,11 @@
     return  nil;
 }
 
+- (int)getTag
+{
+    return -1;
+}
+
+
+
 @end
