@@ -7,7 +7,6 @@
 //
 
 #import "RequestManager.h"
-#import "AFHTTPSessionManager.h"
 
 @implementation RequestManager
 
