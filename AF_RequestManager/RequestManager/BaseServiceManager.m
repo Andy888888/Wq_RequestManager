@@ -7,6 +7,7 @@
 //
 
 #import "BaseServiceManager.h"
+#import "AFHTTPSessionManager.h"
 
 
 @implementation BaseServiceManager

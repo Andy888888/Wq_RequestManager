@@ -8,7 +8,7 @@
 
 #import "ApiDelegate.h"
 #import "AbsApi.h"
-//@class AFHTTPSessionManager;
+//@class AFHTTPSessionManager;//
 #import "AFHTTPSessionManager.h"
 
 /// 请求响应成功的block

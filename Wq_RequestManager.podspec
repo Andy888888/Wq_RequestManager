@@ -12,13 +12,15 @@ Pod::Spec.new do |s|
 
   s.license      = "MIT"
   s.author             = { "燕文强" => "yanwenqiang1991@foxmail.com" }
-  s.platform     = :ios, "7.0"
+  s.platform     = :ios, "7.3"
 
   s.source       = { :git => "https://github.com/Andy888888/Wq_RequestManager.git", :tag => "#{s.version}" }
 
   s.source_files  = "AF_RequestManager/RequestManager/*.{h,m}"
-  s.exclude_files = "Classes/Exclude"
-  # s.public_header_files = "Classes/**/*.h"
+  s.public_header_files = "AF_RequestManager/RequestManager/*.h"
+  # 排除文件
+  # s.exclude_files = "Classes/Exclude"
+
 
   # s.resource  = "icon.png"
   # s.resources = "Resources/*.png"
