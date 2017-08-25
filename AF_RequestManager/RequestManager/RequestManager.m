@@ -6,6 +6,8 @@
 //  Copyright © 2016年 燕文强. All rights reserved.
 //
 
+// 2017/8/24 update
+
 #import "RequestManager.h"
 
 @implementation RequestManager
