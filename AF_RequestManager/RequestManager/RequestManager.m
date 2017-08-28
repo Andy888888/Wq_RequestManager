@@ -9,8 +9,12 @@
 // 2017/8/24 update
 
 #import "RequestManager.h"
+#import "CentaError.h"
 
 @implementation RequestManager
+{
+    NSMutableArray *_responseErrorInterceptor;
+}
 
 + (id)initManagerWithDelegate:(id<ResponseDelegate>)delegate
 {
@@ -55,9 +59,19 @@
              }
              
          } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-             //请求失败
-             if (self.delegate) {
-                 [self.delegate respFail:error andRespApi:api];
+             
+             if(_responseErrorInterceptor){
+                 for (int i = 0; i < _responseErrorInterceptor.count; i++) {
+                     ErrorInterceptor *interceptor = _responseErrorInterceptor[i];
+                     CentaError *err = [interceptor intercept:error];
+                     if(!error){
+                         //请求失败
+                         if (self.delegate) {
+                             [self.delegate respFail:err andRespApi:api];
+                         }
+                         break;
+                     }
+                 }
              }
          }];
 }
@@ -87,6 +101,15 @@
                 [self.delegate respFail:error andRespApi:api];
             }
         }];
+}
+
+- (void)addResponseErrorInterceptor:(ErrorInterceptor *)interceptor
+{
+    if(!_responseErrorInterceptor){
+        _responseErrorInterceptor = [NSMutableArray new];
+    }
+    
+    [_responseErrorInterceptor addObject:interceptor];
 }
 
 @end

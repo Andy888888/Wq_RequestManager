@@ -7,6 +7,7 @@
 //
 
 #import "BaseServiceManager.h"
+#import "ErrorInterceptor.h"
 
 /// ResponseDelegate 数据响应回调协议
 /// @warning 请不要随便修改
@@ -30,5 +31,6 @@
 + (id)initManagerWithDelegate:(id<ResponseDelegate>)delegate;
 /// 发送数据请求，参数为继承AbsApi抽象类，且遵守BaseApiDelegate协议 的对象
 - (void)sendRequest:(AbsApi<ApiDelegate>*)api;
+- (void)addResponseErrorInterceptor:(ErrorInterceptor *)interceptor;
 
 @end
